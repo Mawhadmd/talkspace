@@ -9,8 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        
+        primaryColor: 'rgb(255, 255, 255)',
+        accentColor: 'rgb(255, 170, 51)',
+        secondAccent: 'rgb(32, 201, 151)',
+        mainTextColor: 'rgb(0, 119, 255)',
+        secTextColor: 'rgb(0, 0, 0)',
       },
     },
   },
