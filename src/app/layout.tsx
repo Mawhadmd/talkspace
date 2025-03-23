@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
+import Nav from "./(Components)/Nav";
 import Link from "next/link";
 export const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"]
-})
+  subsets: ["latin"],
+});
 const roboto = Roboto({
-  weight: ["100",  "300", "400", "500", "700", "900"],
-  subsets: ["latin"]
-})
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,39 +34,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col items-center h-screen   ${roboto.className} ${geistSans.variable} ${geistMono.variable} box-border antialiased`}
+        className={`bg-gradient-to-br bg-fixed from-accentColor/20 to-neutral-500 flex flex-col items-center h-screen   ${roboto.className} ${geistSans.variable} ${geistMono.variable} box-border antialiased`}
       >
-             <nav className="Poppins mx-auto px-10 lg:px-0 flex justify-between items-center lg:w-[90%] w-full ">
-             <Link href="/">
-        <div className=" uppercase text-4xl font-extrabold">
-          <span className="text-mainTextColor">
-            T<span className="text-secondAccent">a</span>
-            lk
-          </span>
-          <span className="text-accentColor">
-            Sp<span className="text-secondAccent">a</span>ce
-          </span>
-        </div>
-        </Link>
-        <div>
-          <ul className="text-mainTextColor lg:flex hidden p-0  gap-20 text-3xl font-semibold mt-3">
-            <Link href="/HowToStartACall"><li>How to start a call</li></Link>
-            <Link href="/AboutUs"><li>About Us</li></Link>
-            <Link href="/Support"><li>Support</li></Link>
+        <Nav />
 
-          </ul>
-        </div>
-        <div className="block lg:hidden">
-          ---<br></br>---
-        </div>
-      </nav>
-      <main className="mx-2 flex flex-col justify-center items-center flex-1">
-        {children}
-        <div className="fixed bottom-[-50%] -z-10 blur-[300px] left-[-10%] w-[50%] min-w-[600px] aspect-square bg-accentColor rounded-full"></div>
-</main>
-<footer className='text-secTextColor text-lg mt-10'>
-                &copy; 2025 Your Company Name. All rights reserved.
-            </footer>
+        <main className=" p-10 flex flex-col justify-center items-start flex-1 my-1 w-[90%] shadow-sm rounded shadow-black ">
+          {children}
+          {/* <div className="fixed  bottom-[-30%] -z-10 blur-[500px] left-[-10%] w-[50%] aspect-square bg-accentColor rounded-full"></div> */}
+        </main>
+        <footer className="text-secTextColor text-lg mt-10">
+          &copy; 2025 Designed and Developed by{" "}
+          <Link
+            href={"https://www.linkedin.com/in/mhmdawad/"}
+            target="_blank"
+            className="text-blue-800 hover:underline"
+          >
+            Mohammed Awad
+          </Link>
+          . All rights reserved.
+        </footer>
       </body>
     </html>
   );
